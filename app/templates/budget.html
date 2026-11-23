@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>店券预算裁决 · {{ title }}</title>
+  <link rel="stylesheet" href="/static/ledger.css">
+</head>
+<body>
+  <aside class="sidebar"><div class="brand"><span aria-hidden="true">算</span><strong>店券预算裁决</strong></div>
+    <nav aria-label="预算模块">
+      <a href="#pools" data-panel="pools">预算池</a><a href="#receipts" data-panel="receipts">小票裁决</a>
+      <a href="#gates" data-panel="gates">三道闸门</a><a href="#batch" data-panel="batch">批次档案</a>
+      <a href="/">复核台</a>
+    </nav>
+    <p class="shop-label">同店当日 · 店券共用预算</p>
+  </aside>
+  <main>
+    <header class="toolbar"><h1 id="section-title">预算池</h1><div class="batch"><label for="sample">裁决批次</label><select id="sample"><option value="budget">额度争用</option><option value="dirty">含差异流水</option><option value="clean">正常交易</option></select><button id="load-sample">载入样例</button><button id="submit" class="accent">提交批次</button></div></header>
+    <section class="kpis" id="figures" aria-label="预算合计"></section>
+    <div class="spread">
+      <section class="panel slip" id="primary-panel" aria-label="预算与小票"></section>
+      <section class="panel argument" id="side-panel" aria-label="闸门与档案"></section>
+    </div>
+    <details class="import-box" id="input-box">
+      <summary>批次输入（流水 · 规则集 · 预算池）</summary>
+      <form id="batch-form">
+        <label for="events">逐行流水 JSON</label><textarea id="events" rows="5" required></textarea>
+        <label for="rules">规则集 JSON</label><textarea id="rules" rows="5" required></textarea>
+        <label for="budgets">预算池 JSON（门店 · 交易日 · 额度 · 出资券组）</label><textarea id="budgets" rows="3" required></textarea>
+      </form>
+    </details>
+    <footer><span id="feedback" role="status">等待提交批次</span><span id="snapshot">未归档</span></footer>
+  </main>
+  <script type="module" src="/static/budget.js"></script>
+</body>
+</html>

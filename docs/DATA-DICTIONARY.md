@@ -23,3 +23,11 @@
 ## 冲回和归档
 
 同一原单明细按退货 UTC、退单号排序。把原行减免先均分到件，余分给前几件，按累计已退件数获取本次减免。跨日时沿用同一原单明细。现金不一致保留双方金额及差额。`source_line` 是流水行号，`rule_index` 是规则列表序号，`original_line` 是原购流水行号。清单保存规则版本与规范化输入摘要，归档附件包含全部模块证据。
+
+## 预算池 `budgets.json`
+
+JSON 数组，每项一个门店当日池。`shop`、`day`（`YYYY-MM-DD`，UTC+08:00 交易日）、`amount`（金额串，规则同流水金额）、`groups`（出资券组，缺省 `["店券"]`）。同 `(shop, day)` 重复声明拒绝整批。池随首个引用它的批次建立，后续批次共用其余量。
+
+## 预算批次
+
+批次主键是 `events`、`rules`、`budgets` 规范化后的内容哈希，同内容重投返回原档案。`receipts` 逐单给出 `status`（`funded` 已出资 / `unfunded` 未获出资 / `free` 无需出资 / `duplicate` 重复投递 / `isolated` 已隔离）、最终 `combo`、`occupied` 实际占用、`due` 复算实付、`paid` 实收、`gap` 差额，未获优惠时 `reason` 为 `BUDGET_EXHAUSTED` 或 `POOL_MISSING`，`dropped` 列出被撤下的店券，`best_combo`/`best_due` 保留不计预算时的最优证据。作废后 `voided` 为真、`released` 记录释放额。`pools` 给出各池额度、已占用、剩余与本批持有；`gates` 是三道闸门及未过明细，`status` 为 `formal` 或 `pending`。

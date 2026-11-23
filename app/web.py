@@ -10,3 +10,8 @@ templates = Jinja2Templates(directory=ROOT / "app/templates")
 @router.get("/")
 def workbench(request: Request):
     return templates.TemplateResponse(request, "workbench.html", {"title": TITLE})
+
+
+@router.get("/budget")
+def budget(request: Request):
+    return templates.TemplateResponse(request, "budget.html", {"title": TITLE})

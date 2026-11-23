@@ -1,0 +1,5 @@
+{"type": "sale", "id": "B101", "paid": "22.00", "coupons": ["品类九折", "店券5"], "lines": [{"id": "01", "category": "茶饮", "qty": 2, "price": "15.00"}], "at": "2026-11-22T09:01:00+08:00", "shop": "滨河店"}
+{"type": "sale", "id": "B102", "paid": "20.00", "coupons": ["店券5"], "lines": [{"id": "01", "category": "茶饮", "qty": 1, "price": "25.00"}], "at": "2026-11-22T09:03:00+08:00", "shop": "滨河店"}
+{"type": "sale", "id": "B103", "paid": "17.00", "coupons": ["店券5"], "lines": [{"id": "01", "category": "茶饮", "qty": 1, "price": "22.00"}], "at": "2026-11-22T09:05:00+08:00", "shop": "滨河店"}
+{"type": "sale", "id": "B104", "paid": "8.00", "coupons": ["店券2"], "lines": [{"id": "01", "category": "杂货", "qty": 1, "price": "10.00"}], "at": "2026-11-22T09:07:00+08:00", "shop": "滨河店"}
+{"type": "sale", "id": "B105", "paid": "20.00", "coupons": ["店券5"], "lines": [{"id": "01", "category": "茶饮", "qty": 1, "price": "25.00"}], "at": "2026-11-22T09:09:00+08:00", "shop": "北门店"}

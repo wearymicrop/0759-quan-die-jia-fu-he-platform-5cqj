@@ -2,7 +2,7 @@ import {cash,el,grid,head,pill,reason,text} from './format.js';
 import {optimizer,rulesGrid} from './coupon-grid.js';
 
 let result=null, archived=null, selected='', revision=0, custom=false;
-const tabs=[...document.querySelectorAll('nav a')];
+const tabs=[...document.querySelectorAll('nav a[data-panel]')];
 const feedback=message=>{el('#feedback').textContent=message;};
 const current=()=>tabs.find(tab=>tab.hash===location.hash)||tabs[0];
 
